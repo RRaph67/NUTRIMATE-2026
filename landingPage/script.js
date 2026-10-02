@@ -1,34 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     var body = document.body;
-    var navbar = document.getElementById('navbar');
-    var menuBtn = document.getElementById('menuBtn');
-    var overlay = document.getElementById('overlay');
-    var sidebar = document.getElementById('sidebar');
-
-    /* ---------- Sidebar (mobile & tablet) ---------- */
-    function setSidebar(open) {
-        body.classList.toggle('sidebar-open', open);
-        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        sidebar.setAttribute('aria-hidden', open ? 'false' : 'true');
-    }
-
-    menuBtn.addEventListener('click', function () {
-        setSidebar(!body.classList.contains('sidebar-open'));
-    });
-
-    overlay.addEventListener('click', function () {
-        setSidebar(false);
-    });
-
-    sidebar.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-            setSidebar(false);
-        });
-    });
-
-    window.addEventListener('resize', function () {
-        if (window.innerWidth >= 1024) setSidebar(false);
-    });
 
     /* ---------- Pop up Masuk / Daftar ---------- */
     var modal = document.getElementById('authModal');
@@ -53,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var alreadyOpen = isModalOpen();
         if (!alreadyOpen) lastFocus = document.activeElement;
 
-        setSidebar(false);
+        if (window.NutriMate) window.NutriMate.closeSidebar();
         showPanel(name);
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
@@ -113,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ---------- Keyboard: Esc & Tab ---------- */
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            setSidebar(false);
+            // Sidebar ditutup oleh ../assets/js/shared.js
             closeModal();
         }
 
@@ -134,13 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
-    /* ---------- Bayangan navbar saat di-scroll ---------- */
-    function onScroll() {
-        navbar.classList.toggle('scrolled', window.scrollY > 10);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
     /* ---------- Animasi muncul untuk kartu fitur & CTA ---------- */
     var items = document.querySelectorAll('.reveal');

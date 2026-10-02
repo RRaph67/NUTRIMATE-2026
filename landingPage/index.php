@@ -68,7 +68,7 @@ $urlDaftar = 'index.php?modal=register';
 // Menu navigasi (dipakai navbar desktop & sidebar mobile/tablet)
 $nav = [
     ['Home', 'index.php', true],
-    ['Food Database', '#', false],
+    ['Food Database', '../foodDatabase/index.php', false],
     ['Recommendation', '#', false],
     ['Calculate Nutritions', '#', false],
 ];
@@ -103,41 +103,13 @@ $icons = [
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/shared.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="<?= $openModal ? 'modal-open' : '' ?>">
-    <header class="navbar" id="navbar">
-        <div class="container nav-inner">
-            <a href="index.php" class="brand">
-                <img src="assets/img/logo.svg" alt="" class="brand-logo">
-                <span class="brand-name">Nutri<b>Mate</b></span>
-            </a>
+    <?php include '../partials/navbar.php'; ?>
 
-            <!-- Menu desktop (tampil mulai layar >= 1024px) -->
-            <nav class="nav-pill" aria-label="Menu utama">
-                <?php foreach ($nav as [$label, $href, $active]): ?>
-                    <a href="<?= $href ?>" class="<?= $active ? 'active' : '' ?>"><?= $label ?></a>
-                <?php endforeach; ?>
-            </nav>
-
-            <!-- Tombol akun desktop -->
-            <div class="auth">
-                <?php if ($isLoggedIn): ?>
-                    <a href="index.php?status=logout" class="btn-sm btn-outline btn-logout">Keluar</a>
-                <?php else: ?>
-                    <a href="<?= $urlMasuk ?>" class="btn-sm btn-outline" data-open-modal="login">Masuk</a>
-                    <a href="<?= $urlDaftar ?>" class="btn-sm btn-fill" data-open-modal="register">Daftar</a>
-                <?php endif; ?>
-            </div>
-
-            <!-- Tombol menu mobile & tablet (sembunyi di desktop) -->
-            <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-controls="sidebar" aria-expanded="false">
-                <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            </button>
-        </div>
-    </header>
-
-    <?php include 'includes/sidebar.php'; ?>
+    <?php include '../partials/sidebar.php'; ?>
 
     <main>
         <section class="hero">
@@ -156,7 +128,7 @@ $icons = [
 
                 <div class="hero-visual">
                     <div class="photo-card">
-                        <img src="assets/img/hero.svg" alt="Meal prep makanan sehat" onerror="this.remove()">
+                        <img src="../assets/img/hero.svg" alt="Meal prep makanan sehat" onerror="this.remove()">
                     </div>
                     <div class="float-info">
                         <span class="float-icon">
@@ -207,23 +179,11 @@ $icons = [
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="foot-left">
-                <img src="assets/img/logo.svg" alt="" class="foot-logo">
-                <strong>NutriMate</strong>
-                <span>© 2026 NutriMate. Hak Cipta Dilindungi.</span>
-            </div>
-            <nav class="foot-links">
-                <a href="#">Kebijakan Privasi</a>
-                <a href="#">Syarat &amp; Ketentuan</a>
-                <a href="#">Bantuan &amp; FAQ</a>
-            </nav>
-        </div>
-    </footer>
+    <?php include '../partials/footer.php'; ?>
 
-    <?php if (!$isLoggedIn) { include 'includes/auth-modal.php'; } ?>
+    <?php if (!$isLoggedIn) { include 'auth-modal.php'; } ?>
 
-    <script src="assets/js/script.js"></script>
+    <script src="../assets/js/shared.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

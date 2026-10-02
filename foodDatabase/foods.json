@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Nasi Merah Dada Ayam",
+    "category": "Protein",
+    "price": 18000,
+    "portion_unit": "porsi",
+    "calories": 410,
+    "protein": 38,
+    "carbs": 45,
+    "fat": 8,
+    "description": "1 porsi standar (150g nasi merah pulen, 120g dada ayam panggang bumbu gurih).",
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Tempe Orek Warteg",
+    "category": "Protein",
+    "price": 4000,
+    "portion_unit": "porsi",
+    "calories": 165,
+    "protein": 10,
+    "carbs": 18,
+    "fat": 7,
+    "description": "Tempe potongan dadu dimasak dengan kecap manis, cabai merah, dan rempah khas.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Telur Dadar Daun Bawang",
+    "category": "Protein",
+    "price": 5000,
+    "portion_unit": "porsi",
+    "calories": 190,
+    "protein": 12,
+    "carbs": 3,
+    "fat": 14,
+    "description": "Telur dadar tebal goreng garing dengan irisan daun bawang segar dan bawang merah.",
+    "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Sayur Bayam Jagung",
+    "category": "Sayuran",
+    "price": 4500,
+    "portion_unit": "porsi",
+    "calories": 75,
+    "protein": 4,
+    "carbs": 14,
+    "fat": 1,
+    "description": "Sayur bening bayam segar dipadu manisnya jagung manis muda.",
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Tahu Bumbu Kuning",
+    "category": "Protein",
+    "price": 3500,
+    "portion_unit": "porsi",
+    "calories": 140,
+    "protein": 11,
+    "carbs": 6,
+    "fat": 8,
+    "description": "Tahu kuning lembut dengan kuah ungkep kunyit dan serai aromatik.",
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Tumis Kangkung Gurih",
+    "category": "Sayuran",
+    "price": 5000,
+    "portion_unit": "porsi",
+    "calories": 85,
+    "protein": 3,
+    "carbs": 7,
+    "fat": 5,
+    "description": "Kangkung segar ditumis cepat dengan terasi, bawang putih, dan cabai rawit.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80"
+  }
+]

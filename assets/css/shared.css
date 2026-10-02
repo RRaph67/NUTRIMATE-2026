@@ -1,0 +1,112 @@
+/* ============================================================
+   NUTRIMATE — Stylesheet Global (reusable)
+   ------------------------------------------------------------
+   Berisi: variabel warna, reset/typography dasar, layout .container,
+   komponen Navbar, komponen Sidebar, dan komponen Footer.
+
+   Dipakai SEMUA fitur. Cukup tambahkan di <head> index.php fitur:
+
+       <link rel="stylesheet" href="../assets/css/shared.css">
+       <link rel="stylesheet" href="style.css">   <!-- css khusus halaman -->
+
+   Urutan penting: shared.css dulu, style.css belakangan.
+   ============================================================ */
+
+:root {
+    --green: #718a14;
+    --green-dark: #5f7710;
+    --cream: #fdf8f1;
+    --section: #f8f5ee;
+    --yellow: #f8d88c;
+    --text: #1c1c1a;
+    --muted: #55554f;
+    --red: #e8310c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 18px; }
+
+/* ================= Navbar ================= */
+.navbar { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: 1px solid #ece5d8; transition: box-shadow .25s; }
+.navbar.scrolled { box-shadow: 0 4px 18px rgba(60, 50, 20, .08); }
+.nav-inner { height: 54px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 7px; }
+.brand-logo { width: 28px; height: 28px; }
+.brand-name { font-size: 17px; font-weight: 700; color: var(--green-dark); }
+.brand-name b { font-weight: 600; color: var(--green); }
+.nav-pill, .auth { display: none; }
+.menu-btn { width: 34px; height: 34px; border: 0; background: none; color: var(--green-dark); cursor: pointer; display: grid; place-items: center; border-radius: 9px; }
+.menu-btn svg { width: 20px; height: 20px; }
+
+.nav-pill { gap: 3px; padding: 6px; background: #f3f0e8; border-radius: 99px; }
+.nav-pill a { padding: 7px 15px; font-size: 13px; font-weight: 600; border-radius: 99px; transition: background .2s, color .2s; }
+.nav-pill a:hover { background: #e8e4d8; }
+.nav-pill a.active { background: var(--green); color: #fff; }
+.auth { gap: 7px; }
+.btn-sm { padding: 8px 15px; font-size: 13px; font-weight: 600; border-radius: 99px; transition: filter .2s, transform .2s; }
+.btn-sm:hover { filter: brightness(.96); transform: translateY(-1px); }
+.btn-outline { background: #fff; border: 1px solid #e6e0d3; }
+.btn-fill { background: var(--green); color: #fff; border: 1px solid var(--green); }
+.btn-logout { color: var(--red); border-color: #f3c9c0; }
+
+/* ================= Footer ================= */
+.footer { background: #f6f2ec; border-top: 1px solid #e8e1d4; padding: 22px 0; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 13px; text-align: center; }
+.foot-left { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 7px 10px; font-size: 11px; color: var(--muted); }
+.foot-left strong { color: var(--text); font-weight: 600; }
+.foot-logo { width: 18px; height: 18px; }
+.foot-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 16px; }
+.foot-links a { font-size: 11px; font-weight: 600; color: var(--green-dark); transition: color .2s; }
+.foot-links a:hover { color: var(--green); }
+
+/* ================= Sidebar (mobile & tablet) ================= */
+body.sidebar-open, body.modal-open { overflow: hidden; }
+.overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, .35); opacity: 0; visibility: hidden; transition: opacity .25s; z-index: 90; }
+.sidebar { position: fixed; top: 0; right: 0; bottom: 0; width: min(264px, 82vw); background: #fff; padding: 18px 14px; box-shadow: -8px 0 30px rgba(0, 0, 0, .18); transform: translateX(105%); transition: transform .3s ease; z-index: 100; overflow-y: auto; }
+body.sidebar-open .overlay { opacity: 1; visibility: visible; }
+body.sidebar-open .sidebar { transform: none; }
+.side-brand { display: flex; align-items: center; gap: 7px; margin-bottom: 20px; }
+.side-brand .brand-name { line-height: 1.1; }
+.tagline { font-size: 9px; color: var(--green); }
+.side-label { font-size: 12px; color: var(--green); margin: 0 6px 8px; }
+.side-nav { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+.side-item { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; border-radius: 99px; font-size: 14px; font-weight: 600; color: var(--green); transition: background .15s; }
+.side-item:hover { background: #f0f4e4; }
+.side-item.active { background: var(--green); color: #fff; font-weight: 700; }
+.side-item .chev { width: 15px; height: 15px; stroke-width: 1.8; }
+.side-item.logout { color: var(--red); }
+.side-item.logout:hover { background: #fdeceb; }
+.side-item .out { width: 18px; height: 18px; }
+
+/* ============================================================
+   TABLET  (>= 768px)
+   ============================================================ */
+@media (min-width: 768px) {
+    .container { padding: 0 28px; }
+    .nav-inner { height: 60px; }
+
+    .footer { padding: 28px 0; }
+    .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+    .foot-left { font-size: 13px; justify-content: flex-start; }
+}
+
+/* ============================================================
+   DESKTOP  (>= 1024px)
+   ============================================================ */
+@media (min-width: 1024px) {
+    .container { padding: 0 36px; }
+    .nav-inner { height: 66px; }
+    .brand-logo { width: 30px; height: 30px; }
+
+    /* Tampilkan menu desktop, sembunyikan tombol menu */
+    .nav-pill { display: flex; }
+    .auth { display: flex; }
+    .menu-btn, .sidebar, .overlay { display: none; }
+
+    .footer { padding: 30px 0; }
+}
