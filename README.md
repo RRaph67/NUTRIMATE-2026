@@ -1,11 +1,6 @@
 <div align="center">
   <img src="assets/img/logo.svg" alt="NutriMate logo" width="180" />
 
-  <p align="center">
-    <!-- PLACEHOLDER: ganti dengan screenshot/mockup halaman utama -->
-    <img src="assets/img/mockup.png" alt="NutriMate mockup" width="100%" />
-  </p>
-
   # NutriMate
 
   **Aplikasi web pengelolaan nutrisi dan rencana makan untuk mahasiswa — kelola database makanan, hitung kebutuhan gizi, susun meal planner, dan cari rekomendasi makanan sesuai budget.**
